@@ -1,0 +1,113 @@
+-> Dictionaries: 
+	-> Key-value pairs 
+	-> Example syntax:
+
+my_dict = {
+    'name': 'Michael',
+    'occupation': 'Lumberjack'
+}
+
+	-> Keys are immutable datatypes and are unique 
+	-> You can't use a list or another dictionary as keys 
+	-> my_dict['name'] # 'Michael' <- To access the data stored at a certain key in a dictionary 
+	-> copper['species'] <- The key is species and the dictionary is the result 
+		-> We are accessing the value stored at this key in the dictionary 
+	-> To add a key to a dictionary which already exists:
+
+my_dict['country'] = 'Canada'
+	
+	-> del my_dict['occupation'] <- To delete a key-value pair from a dictionary 
+
+-> Graphs:
+	-> Data-structures representing relations between pairs of elements 
+	-> Elements are nodes and the connections between them are edges 
+	-> Graphs can be used to represent points in the space, A and B, connected by a path 
+	-> In Python, we've renamed a dictionary a graph 
+	-> In this example:
+
+my_graph = {
+    'A': 'B',
+    'B': 'A'
+}  
+
+-> Weighted graphs:
+	-> When the edges of graphs are weighted 
+	-> The weights can, for example, represent the distance between each of the nodes 
+	-> We set these weights using tuples 
+	-> The first element in the tuple is for the connected node and the second element is for an integer which contains the distance 
+	-> In this example we are changing the dictionary which represents the graph into a list of tuples 
+	-> We carry on until we have this graph (dictionary), with the distances representing tuples:
+
+my_graph = {
+    'A': [('B', 3), ('D', 1)],
+    'B': [('A', 3), ('C', 4)],
+    'C': [('B', 4), ('D', 7)],
+    'D': [('A', 1), ('C', 7)]
+}
+
+-> Defining a function which calculates the shortest path between the nodes:
+	-> We are calling this the shortest_path function 
+	-> Take a node in the graph and calculate the shortest distance between it and every other node   
+	-> unvisited.append(node) <- Add node to the list which is unvisited 
+	-> We are adding a for loop to keep track of the currently known shortest distance between the starting node and the other nodes on the graph 
+	-> The distance from the starting node to itself is 0 -> so this is what we initialise it as in a for loop 
+	-> Working with graphs <- We first define the graph in a dictionary like object 
+	-> And then we define a function which calculates the shortest distance for certain nodes on it  
+	
+	-> Calculating distances:
+		-> We want to calculate the distance between the source node and all other nodes in the graph 
+		-> At first, we assume this is infinite <- inf 
+		-> float(inf) <- To generate a floating point number representing the positive infinity 
+		-> f'Unvisited: {unvisited}\nDistances: {distances}' <- An f string literal which prints this out after the for loop 
+		-> We are iterating through the different nodes in the graph
+		-> Once we have defined the function, we test it by calling it in the cell 
+		-> So we start off with the distance from the current node to itself set to 0 and the distance between it and all other nodes set to infinite 
+
+-> list():
+	-> This allows us to build a list from an iterable 
+	-> This is a constructor 
+
+-> Dictionary comprehensions:
+	-> {key: val for key in dict} <- To create a dictionary starting from an existing dictionary 
+	-> We are keeping track of the distances and paths between the source node and all other nodes 
+	-> {key: val_1 if condition else val_2 for key in dict} 
+		-> Using this with conditional if/ else syntax  
+		-> We are using a dictionary comprehension to create a dictionary based in `graph` and assigning it to the `distances` variable 
+	-> The algorithm starts the assessment from the starting node <- so we are adding the starting node to the `paths` dictionary 
+	-> Then printing out the values of the variables which have changed after each function call 
+
+-> Closest neighbour node approach:
+	-> The function starts at the starting node, and calculates the distance to all of the other nodes 
+		-> We are 'visiting' all of the nodes 
+	-> And then we calculate the shortest path between the current node and all of those other nodes
+	-> Then remove the staring node from the unvisited nodes 
+
+-> min():
+	-> This function returns the smallest item from the iterable passed as the argument 
+	-> You can pass an entire function as the argument to this 
+	-> This is what we are using to select the minimal distance 
+	-> We are selecting the unvisited node with the smallest possible distance to the source / current node 
+	-> We then iterate through the tuples which contain the graph for the project 
+
+-> We are keeping track of the path to the node, as well as the distance between it and the source node 
+	-> Then the extend() function <- To add the current node path to the neighbour node path 
+	-> paths[node].extend(paths[current]) <- This is how we extend the current node path to the neighbour node path 
+	-> paths[node].append(node) <- Then appending the neighbour node to its path 
+	-> unvisited.remove(current) <- Then to remove the current node from the unvisited list 
+		-> We have to be careful about the indentation when doing this 
+		-> When you are calling something, you need to make sure that it's been defined before it's called 
+
+-> Lists are mutable <- they can be changed 
+-> We are adding more arguments to the function, to make the output more complex 
+
+-> ternary syntax
+	-> val_1 if condition else val_2
+	-> To write if / else conditionals 
+	-> It evaluates to val_1 if the condition is true, and to val_2 if the condition is false	
+	-> More concise if statements / boolean conditions 
+	-> F strings are the same as using the .format{} method 
+		-> We are printing the results of the function as it is executed, using this approach 
+		-> F string literals 
+		-> And printing the details about the starting node 
+
+-> Then testing the function we've made once we've made it 
