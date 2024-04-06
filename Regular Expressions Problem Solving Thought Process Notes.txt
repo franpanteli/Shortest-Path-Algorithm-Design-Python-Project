@@ -1,0 +1,109 @@
+What we are doing in this project: 
+	-> Python module <- a file which contains a set of statements and definitions which we can import and use into our code 
+	-> This project is about importing modules from the standard Python libraries
+	-> Using Regular Expressions by building a password generator program 
+
+-> Python modules contain code to perform specific tasks 
+-> We can import these 
+-> There is a string module -> import string 
+-> Put the import statements in alphabetical order for readability 
+-> The random() module:
+	-> This contains a pseudo-random number generator 
+	-> Between 0.0 (inclusive) and 1.0 (exclusive)
+	-> print(random.random()) <- To call this and print a random number
+
+-> The choice() function:
+	-> From the random module 
+	-> Take a sequence and return a random item from it 
+	-> random.choice(all_characters) <- Return a random character from this array of characters 
+
+-> For the random number generator:
+	-> We have a list of characters -> abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!"#$%&'()*+,-./:;<=>?@[\]^_`{|}~
+	-> We want to return a random element from this 
+	-> Then combine those to make them into a suggested random password 
+	-> But the algorithm which is selecting the random numbers is based on pseudo random number selection, with a deterministic nature 
+	-> So the program can't be used for more complicated cryptographic purposes 
+	-> Secrets is a more secure module for doing this
+
+Using underscores in for loops:
+	-> Instead of for char in, we can use for _ in <- a value we don't care or that won't be used in the code 
+		-> When the iteration variable isn't actually used 
+-> There can be requirements we want the password to adhere to <- a certain number of characters / digits 
+
+Tuples:
+	-> This is an example of a data-structure 
+	-> () not []
+	-> Tuples are immutable <- They can't be changed
+	-> Lists can be changed  
+	-> We can add different tuples for elements that we want to include in the password 
+
+-> re module <- regular expressions 
+	-> regex <- Regular expressions: 
+		-> Patterns to match specific combinations of characters inside strings 
+		-> Alternatives to if / else conditions for finding patterns inside of strings 
+
+	-> re.compile() <- This is a function from the module which compiles the string as it's passed as the argument into a regular 
+		expression object, so it can be used by other re methods 
+		-> To compile a regular expression pattern into a regex object 
+		-> pattern = re.compile('i') <- In the code we are writing  
+		-> 'i' is the regular expression pattern 
+		-> So once it's been converted, we can use it for pattern matching in other operations
+
+	-> The .search() function: 
+		-> Analysing the string passes as the argument 
+		-> Looking for the first place where the regex pattern matches the string 
+
+	-> pattern = re.compile('l+') <- Another use of this: 
+		-> Regex matches the first l inside the string in this case
+		-> How many times the character should be repeated 
+
+-> findall():
+	-> This is a function from the re() module 
+	-> This returns a list with all the occurrences of the matched patted 
+	-> ma[dnt] <- To match one character in the square brackets 
+
+-> caret, ^
+	-> This is placed at the beginning of the character class
+	-> We are matching all of the characters except those specified in the class 
+	-> Adding this later in the code to negate a pattern 
+
+-> The dot character:
+	-> This is a wildcard that matches any character in a string 
+	-> Except for a newline character, by default 
+	-> \ <- To escape a character we are doing pattern matching on 
+
+-> Character classes:
+	-> Raw strings <- back slashes are treated as literal characters, rather than escape characters 
+		-> pattern = r'\.' <- Raw string 
+		-> pattern = '\.' <- Otherwise 
+	-> \d <- Shorthand for [0-9]
+		-> You can replace [0-9] with it in the code 
+
+	-> We can combine multiple ranges in character classes:
+		-> [a-d3-6] <- This is an example of this syntax 
+		-> This is the combination of the ranges [a-d] and [3-6]
+
+	-> [0-9] is equivalent to \d and [^0-9] is equivalent to \D
+	-> Then \w can be used to match alphanumeric characters, and \W can be used to match non-alphanumeric characters 
+		-> This can be used to replace [^a-zA-Z0-9]
+		-> This can't be used to match all of our special characters
+
+-> findall() <- The final function: 
+	-> You can pass pattern and password as the arguments to this
+	-> In this code it's re.findall()
+
+-> There are multiple different approaches to solve the same problem
+
+-> The all() method:
+	-> all() <- This is a built-in Python function which returns True if all the elements inside a given utterable evaluate to True 
+		-> Otherwise, it returns False 
+
+-> Generator expressions:
+	-> These expressions can save memory 
+	-> They follow the syntax of list comprehensions, but they use parenthesis, rather than square brackets
+
+-> Parameters are the arguments to functions:
+	-> And these have values assigned to them, or default values 
+	-> When you call a function, the order of the arguments doesn't matter - as long as they are keyword arguments 
+	-> There are default arguments and then there are keyword arguments 
+	-> If you don't tell it the value of one of those arguments when you call the function, then its default value will be used 
