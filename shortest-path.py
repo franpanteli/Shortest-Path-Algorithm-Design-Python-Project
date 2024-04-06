@@ -57,12 +57,37 @@ def shortest_path(graph, start, target = ''):
     paths = {node: [] for node in graph}
     paths[start].append(start)
     
+"""
+    This section of the code applies Dijkstra's algorithm: 
+        -> This is for the shortest path between a selected node in the graph and its other nodes 
+        -> We are using the algorithm on this graph because it is for weighted graphs, with non-negative edge weights 
+        
+    The while loop this block contains:
+        -> We are looping through all of the nodes in the graph and visiting them
+        -> And carrying on looping until we have finished going through all of the nodes left 
+        -> If we are on a current node, then we are choosing the next node of minimum distance - based on where we are in the 
+            graph
+        -> Look at the nodes that we haven't visited yet, and of those take the one with the shortest distance to the one which 
+            we are currently on 
 
+    Performing scans:
+        -> We are at a node 
+        -> We are then looking at each of the nodes which are connected to that
+        -> We have a few different routes which we could go down, given the current node we are at 
+        -> If a potential route has a shorter overall weight than the one which is stored as the route with the currently 
+            known shortest distance, we need to update it
+        -> So we are comparing the potential next routes to go down with the currently known shortest path, and updating the 
+            values we have 
+        -> There is a case where we end up looping back to the source node, in which case we coppy the path to avoid shared 
+            references between nodes 
+        -> When we find the path with the shortest distance, we are deleting the one which was previously stored as it, and
+            replacing it with this new one
+        -> We loop through all of the different nodes with this while loop, and determine the shortest path from the source 
+            node to the end node 
+        -> The `distances` dictionary then contains the shortest distances from the starting node to the others 
+        -> The `paths` dictionary also then contains the shortest paths from the starting node to the others 
+"""
 
-
-
-
-    
     while unvisited:
         current = min(unvisited, key=distances.get)
         for node, distance in graph[current]:
@@ -75,6 +100,22 @@ def shortest_path(graph, start, target = ''):
                 paths[node].append(node)
         unvisited.remove(current)
     
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     targets_to_print = [target] if target else graph
     for node in targets_to_print:
         if node == start:
