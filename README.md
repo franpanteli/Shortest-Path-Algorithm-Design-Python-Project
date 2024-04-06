@@ -4,5 +4,5 @@ I independently completed freeCodeCamp’s [Scientific Computing with Python](ht
 
 ### To Clone This Repository
 ```
-git clone https://github.com/franpanteli/Regular-Expressions-Password-Generator-Python-Project.git
+git clone https://github.com/franpanteli/Shortest-Path-Algorithm-Design-Python-Project.git
 ```
