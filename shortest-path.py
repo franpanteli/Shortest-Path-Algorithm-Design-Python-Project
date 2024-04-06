@@ -100,28 +100,41 @@ def shortest_path(graph, start, target = ''):
                 paths[node].append(node)
         unvisited.remove(current)
     
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+"""
+    Performing the algorithm multiple times in the same function:
+        -> The previous while loop was running the function, but for a source loop to one of the nodes in the graph 
+        -> `targets_to_print`
+            -> The algorithm is taking a source node and a target node on the graph and calculating the shortest distance 
+                between them 
+            -> We have a source node
+            -> The user can then specify what the target node will be <- if we want to get from the source node to one node 
+            -> If they don't specify this target node, then the function will execute the algorithm between the start (source) 
+                node and all nodes in the graph 
+            -> This variable contains an array for all of the target nodes in the graph which we want to execute the algorithm 
+                for
+        -> So we have a while loop, which executes the shortest path algorithm from the source node to a target node
+        -> We also have a list of target nodes we want to execute this for 
+        -> We are now taking this list of target nodes and executing the algorithm on them 
+        -> So we are executing it multiple times
+        -> Each time we do this, we are calculating the shortest distance between a source node and the target node
+        -> This returns the shortest distance between the source and target node, and the path 
+        -> That, times the number of different target nodes which we are processing  
+"""
 
     targets_to_print = [target] if target else graph
     for node in targets_to_print:
         if node == start:
             continue
         print(f'\n{start}-{node} distance: {distances[node]}\nPath: {" -> ".join(paths[node])}')
-    
+
+"""
+Return statements:
+	-> We then return two dictionaries as part of this 
+	-> These contain the shortest paths and distances from the starting node to all other nodes in the graphs
+	-> Or from the starting node to the specified target nodes as part of this
+"""
+
     return distances, paths
-    
+
+# Test the function we just defined on the graph stored in the variable at the start of this .py file
 shortest_path(my_graph, 'A','F')
