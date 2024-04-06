@@ -89,7 +89,7 @@ my_graph = {
 	-> We are selecting the unvisited node with the smallest possible distance to the source / current node 
 	-> We then iterate through the tuples which contain the graph for the project 
 
--> We are keeping track of the path to the node, as well as the distance between it and the source node 
+-> We are keeping track of the path to the node, as well as the distance between it and the source node: 
 	-> Then the extend() function <- To add the current node path to the neighbour node path 
 	-> paths[node].extend(paths[current]) <- This is how we extend the current node path to the neighbour node path 
 	-> paths[node].append(node) <- Then appending the neighbour node to its path 
@@ -100,7 +100,7 @@ my_graph = {
 -> Lists are mutable <- they can be changed 
 -> We are adding more arguments to the function, to make the output more complex 
 
--> ternary syntax
+-> ternary syntax:
 	-> val_1 if condition else val_2
 	-> To write if / else conditionals 
 	-> It evaluates to val_1 if the condition is true, and to val_2 if the condition is false	
